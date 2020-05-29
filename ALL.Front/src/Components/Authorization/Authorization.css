@@ -1,0 +1,70 @@
+.Singin{
+    font-family: "Century Gothic";
+}
+
+.loginButton, .registrationButton{
+    width: 170px;
+    background-color: #88DBFF;
+    font-size: 13pt;
+    padding: 5px 20px 5px 20px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0 10px 0;
+
+
+    transition: 0.5s;
+
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.3);
+}
+
+
+.loginButton:hover{
+    background-color: #58C1EC;
+}
+
+.registrationButton{
+    background-color: #f7f7f7;
+}
+
+.registrationButton:hover{
+    background-color: #CDCDCD;
+}
+
+
+.loginInputBlock{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+}
+
+.loginInputBlock input {
+    width: 300px;
+    transition: 0.5s;
+}
+
+.custom-modal-style {
+    width: 430px;
+    border: none;
+    border-radius: 15px;
+}
+
+.custom-modal-style-body {
+    background-color: #F7F7F7;
+    border: none;
+    border-radius: 15px;
+}
+.loginCloseButtonContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.registrationText{
+    height: 30px;
+    transition: 0.4s;
+}
+
+.registrationText:hover{
+    text-decoration: underline blue;
+    color: blue;
+    font-size: 13pt;
+}
