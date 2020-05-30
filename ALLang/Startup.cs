@@ -24,7 +24,7 @@ namespace ALLang
                 .ConfigureWebHostDefaults(builder =>
                 {
                     builder.UseStartup<Startup>();
-                    builder.UseUrls("http://localhost:44354/");
+                    builder.UseUrls("http://localhost:44324/");
                 });
 
         public void ConfigureServices(IServiceCollection services)
