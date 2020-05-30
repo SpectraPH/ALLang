@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using ALLang.BLL.DTO;
 using ALLang.BLL.Enums;
 using ALLang.BLL.Interfaces;
 using ALLang.BLL.Services;
@@ -10,7 +9,7 @@ using ALLang.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace ALLang.Controllers
+namespace ALLang.PL.Controllers
 {
     public class AccountController : Controller
     {
