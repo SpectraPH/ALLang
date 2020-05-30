@@ -1,0 +1,137 @@
+.translationBlock input {
+ width: 250px;
+
+}
+
+.input {
+    font-style: italic;
+    outline: none;
+    margin: 0 10px 5px 10px;
+    border: none;
+    border-bottom: 3px solid #C2DEE9;
+    background-color: #F7F7F7;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    height: 30px;
+    font-size: 13pt;
+    font-family: inherit;
+}
+
+
+.header{
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-left: 170px;
+}
+
+.headerText{
+    font-size: 20pt;
+}
+
+.titleInputsBlock{
+    margin-bottom: 50px;
+}
+
+.titleInputsBlock label{
+    font-size: 14pt;
+}
+
+.titleInputsBlock input{
+    outline: none;
+font-style: italic;
+    border: none;
+    border-bottom: 3px solid #C2DEE9;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 600px;
+    height: 30px;
+    font-size: 13pt;
+    font-family: inherit;
+}
+
+.languageSelection{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 650px;
+}
+
+.languageSelection select{
+    font-size: 13pt;
+    width: 160px;
+}
+
+.translationBlock{
+    display: flex;
+    align-content: center;
+
+    margin-top: 20px;
+
+}
+
+.translationBlock1{
+    display: flex;
+    align-items: center;
+}
+
+.translationBlockContainer{
+    background-color: #F7F7F7;
+
+    border: 1px solid #B9BCC1;
+}
+
+.translationBlockInputs{
+    padding: 15px 10px 15px 35px;
+    display: flex;
+}
+
+.translationBlockInputs img{
+    position: relative;
+    top:10px;
+    height: 30px;
+    width: 30px;
+}
+
+.addButton{
+    float: right;
+    margin: 20px 120px 0 0;
+    height: 25px;
+}
+
+.removeButton{
+    height: 30px;
+    margin: 5px;
+}
+
+.submitButton{
+    margin-right: 10px;
+    background-color: #B3CCE4;
+    font-size: 13pt;
+font-style: italic;
+
+    padding: 5px 20px 5px 20px;
+    border: 1px solid #797979;
+    border-radius: 10px;
+}
+
+.imageBlock{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75px;
+    height: 60px;
+    border: 1px dashed black;
+}
+.imageBlock img{
+    height: 30px;
+    width: 30px;
+}
+
+.imageBlock span{
+    font-size: 8pt;
+}

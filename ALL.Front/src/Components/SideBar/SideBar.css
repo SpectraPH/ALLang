@@ -1,0 +1,65 @@
+.sideBar{
+    color: black;
+    width: 275px;
+    /*border: 1px solid black;*/
+    height: 100%;
+    background-color: #F4F4F4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.sideBarItem,.sideBarItemActive{
+    width: 100%;
+    height: 65px;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+    font-family: "Century Gothic";
+
+    transition: 0.7s;
+}
+
+.sideBarItem:hover{
+    background-color: #C9D7E7;
+    color:dimgrey;
+}
+
+.sideBarItemActive:hover{
+
+    background-color: #C9D7E7;
+    color:dimgrey;
+}
+
+.sideBarItemActive{
+    color: black;
+    border-right: 4px solid #3574BD;
+    font-weight: bold;
+}
+.sideBarItem a:link {
+color: black;
+}
+
+.sideBarItem a:visited {
+    color: black;
+}
+.sideBarItem a:hover {
+    color: black;
+        text-decoration: none;
+}
+.sideBarItemActive a:link {
+    color: #3574BD;
+}
+
+.sideBarItemActive a:visited {
+    color: #3574BD;
+}
+.sideBarItemActive a:hover {
+    color: #3574BD;
+    text-decoration: none;
+}
+
+

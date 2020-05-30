@@ -14,7 +14,7 @@ export default function Login() {
 
 
     if(isLogin()) {
-        axios.get(`https://localhost:44354/user/` + sessionStorage.getItem("username"))
+        axios.get(`https://localhost:44324/user/` + sessionStorage.getItem("username"))
             .then(res => {
                 console.log(res);
                 setLogin(res.data.login)
@@ -64,7 +64,7 @@ export default function Login() {
             {RegistrationModal}
             {isLogin() ?  <div>
                 <span>{sessionStorage.getItem("username")}</span>
-                <img className={"settingsProfileImage"}
+                <img className={"loginProfileImage"}
                      src={img !== null ? "https://localhost:44354/image/" + img : ProfileIMG}/>
             </div> : <a onClick={() => handleShowLogin()}>Вход</a>
             }

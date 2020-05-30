@@ -1,0 +1,32 @@
+.each-slide img{
+    height: 100px;
+    width: 160px;
+    padding: 3px 3px 3px 3px;
+}
+
+.each-slide img:hover{
+    border: 3px solid red;
+    padding: 0;
+}
+
+.slide-container {
+
+}
+
+.activeIMG{
+    border: 3px solid red;
+    padding: 0 0 0 0;
+}
+
+.inactiveIMG{
+
+}
+
+
+.each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 150px;
+}
