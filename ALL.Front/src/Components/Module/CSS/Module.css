@@ -1,0 +1,61 @@
+.moduleHeader{
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+.moduleHeaderContainer{
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+    margin-bottom: 30px;
+}
+
+.moduleSectionInactive, .moduleSectionActive{
+    font-size: 16pt;
+    margin: 0 15px 0 15px;
+}
+
+.moduleSectionInactive{
+    border-bottom: 1px solid #81D3F8;
+}
+
+.moduleSectionActive{
+    border-bottom: 3px solid #81D3F8;
+}
+
+.moduleSectionContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.sliderContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+}
+
+.editButtonContainer{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.moduleSectionContainer a:link{
+    color: black;
+    text-decoration: none;
+}
+
+.moduleSectionContainer a:visited{
+    color: black;
+    text-decoration: none;
+}
+.moduleSectionContainer a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.editButton{
+    display: flex;
+    justify-content: center;
+}

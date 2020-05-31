@@ -1,0 +1,25 @@
+.sliderItemContainer{
+    margin: 40px;
+}
+
+.sliderItem{
+    width: 552px;
+    height: 352px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sliderItem img {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.sliderItem span {
+   font-size: 18pt;
+}
+
+

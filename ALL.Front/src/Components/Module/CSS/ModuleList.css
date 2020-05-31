@@ -1,0 +1,23 @@
+.moduleListHeaderContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.moduleListSearchContainer{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 100px;
+}
+.moduleListSearchContainer input{
+    border: 1px solid black;
+    width: 390px;
+    border-radius: 5px;
+}
+.moduleListHeaderContainer span{
+    font-size: 20pt;
+}
+
+.searchButton{
+    margin-left: 20px;
+}
