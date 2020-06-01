@@ -1,0 +1,80 @@
+.learningInputBlock input{
+    margin: 10px 0 10px 0;
+    width: 600px;
+}
+
+.learningInputBlock{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.learningHeaderContainer{
+    display: flex;
+    justify-content: center;
+
+}
+
+.learningHeader{
+    width: 600px;
+    font-size: 15pt;
+    border: 1px solid #C2DEE9;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.learningSubmitButtonContainer{
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 80px 0 0 ;
+
+}
+
+.learningIndex{
+    background-color: white;
+    border: 1px solid #81D3F8;
+    padding: 5px 20px 5px 20px;
+
+    transition: 0.3s;
+}
+
+.learningIndexContainer button:hover{
+    background-color: #81D3F8;
+    color: white;
+}
+
+.learningIndexContainer button:active{
+
+}
+
+.learningIndexContainer button:focus{
+    font-weight: bolder;
+    border: none;
+    border-radius: 0;
+}
+
+.learningIndexContainer{
+    margin: 0 0 0 90px;
+}
+
+.right, .wrong{
+    width: 600px;
+    font-size: 15pt;
+    border: 1px solid #C2DEE9;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.1);
+
+    transition: 1s;
+}
+
+.right{
+    background-color: #60ba50;
+    color: white;
+}
+
+.wrong{
+    background-color: #ed5555;
+    color: white;
+}

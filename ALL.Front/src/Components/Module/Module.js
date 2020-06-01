@@ -3,6 +3,7 @@ import './CSS/Module.css'
 import axios from "axios";
 import {BrowserRouter, Route, Redirect} from 'react-router-dom'
 import Cards from "./Cards";
+import Learning from "./Learning";
 
 
 export default class Module extends React.Component {
@@ -43,6 +44,11 @@ export default class Module extends React.Component {
             return (<Cards {...props} module={st} handleEdit={hn}/>)
         }
 
+        const WrappedLearning = function (props) {
+            return (<Learning {...props} module={st}/>)
+        }
+
+
         const active = "moduleSectionActive"
         const inactive = "moduleSectionInactive"
 
@@ -69,6 +75,7 @@ export default class Module extends React.Component {
 
                 <BrowserRouter>
                     <Route path={"/module/:id/cards"} component={WrappedCards}/>
+                    <Route path={"/module/:id/l"} component={WrappedLearning}/>
                 </BrowserRouter>
 
             </div>
