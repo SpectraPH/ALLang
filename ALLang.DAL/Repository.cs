@@ -5,6 +5,7 @@ using ALLang.DAL.Entities;
 using System.Linq;
 using System.Net;
 using ALLang.DAL.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace ALLang.DAL
@@ -115,6 +116,30 @@ namespace ALLang.DAL
             if (!ContainUser(users, user.Login))
             {
                 context.Users.Add(user);
+                context.SaveChanges();
+            }
+        }
+
+        public void UpdateUser(User user, IFormFile file)
+        {
+            var userfromDB = context.Users.FirstOrDefault(u => u.Login == user.Login);
+            if (userfromDB != null)
+            {
+                userfromDB.Login = user.Login;
+                userfromDB.Email = user.Email;
+                if (file != null)
+                {
+                    var fileName = file.FileName.GetHashCode().ToString() + ".png";
+                    var path = Path.GetFullPath("img/" + fileName);
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+
+                    userfromDB.ProfileImage = fileName;
+                }
+
+                context.Users.Update(userfromDB);
                 context.SaveChanges();
             }
         }

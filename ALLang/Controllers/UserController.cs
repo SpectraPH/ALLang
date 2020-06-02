@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using ALLang.BLL.DTO;
 using ALLang.BLL.Enums;
 using ALLang.BLL.Interfaces;
 using ALLang.BLL.Services;
@@ -71,6 +72,12 @@ namespace ALLang.PL.Controllers
         public IActionResult GetUserInfo(string login)
         {
             return Json(userService.GetUser(login));
+        }
+
+        [HttpPut("/user")]
+        public void UpdateUser(UserDTO user)
+        {
+            userService.UpdateUser(user);
         }
 
         private ClaimsIdentity GetIdentity(string username, string password)

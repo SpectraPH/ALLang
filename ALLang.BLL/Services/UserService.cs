@@ -1,4 +1,5 @@
-﻿using ALLang.BLL.Enums;
+﻿using ALLang.BLL.DTO;
+using ALLang.BLL.Enums;
 using ALLang.BLL.Interfaces;
 using ALLang.DAL;
 using ALLang.DAL.Entities;
@@ -44,6 +45,16 @@ namespace ALLang.BLL.Services
             }
             repository.SaveUser(user);
             return RegistrationResult.OK;
+        }
+
+        public void UpdateUser(UserDTO user)
+        {
+            User _user = new User
+            {
+                Login = user.Login,
+                Email = user.Email
+            };
+            repository.UpdateUser(_user, user.image);
         }
     }
 }

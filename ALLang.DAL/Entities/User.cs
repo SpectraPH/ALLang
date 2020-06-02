@@ -14,5 +14,10 @@
             Login = login;
             Password = password;
         }
+
+        public User()
+        {
+            
+        }
     }
 }
