@@ -1,0 +1,27 @@
+.pronunciationContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.pronunciationInputContainer{
+    margin: 40px 0 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.pronunciationWord{
+    border-bottom: 1px solid #adceed;
+    font-size: 16pt;
+    padding: 0 10px 0 10px;
+}
+
+.pronunciationButton{
+    width: 170px;
+    border: 1px solid #C2DEE9;
+    border-radius: 5px;
+    background-color: #F7F7F7;
+    font-size: 12pt;
+    padding: 8px 0 8px 0;
+    margin: 0 10px 0 40px;
+    text-align: center;
+}

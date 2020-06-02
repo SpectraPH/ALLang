@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Redirect} from 'react-router-dom'
 import Cards from "./Cards";
 import Learning from "./Learning";
 import Listening from "./Listening";
+import Pronunciation from "./Pronunciation";
 
 
 export default class Module extends React.Component {
@@ -53,6 +54,10 @@ export default class Module extends React.Component {
             return (<Listening {...props} module={st}/>)
         }
 
+        const WrappedPronunciation = function (props) {
+            return (<Pronunciation {...props} module={st}/>)
+        }
+
 
         const active = "moduleSectionActive"
         const inactive = "moduleSectionInactive"
@@ -82,6 +87,7 @@ export default class Module extends React.Component {
                     <Route path={"/module/:id/cards"} component={WrappedCards}/>
                     <Route path={"/module/:id/l"} component={WrappedLearning}/>
                     <Route path={"/module/:id/a"} component={WrappedListening}/>
+                    <Route path={"/module/:id/s"} component={WrappedPronunciation}/>
                 </BrowserRouter>
 
             </div>
