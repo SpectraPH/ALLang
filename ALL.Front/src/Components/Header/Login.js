@@ -65,7 +65,7 @@ export default function Login() {
             {isLogin() ?  <div>
                 <span>{sessionStorage.getItem("username")}</span>
                 <img className={"loginProfileImage"}
-                     src={img !== null ? "https://localhost:44354/image/" + img : ProfileIMG}/>
+                     src={img !== null ? "https://localhost:44324/image/" + img : ProfileIMG}/>
             </div> : <a onClick={() => handleShowLogin()}>Вход</a>
             }
         </div>

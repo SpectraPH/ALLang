@@ -7,6 +7,7 @@ import SideBar from "./Components/SideBar/SideBar";
 import Adding from "./Components/CreatingModule/adding";
 import ModuleList from "./Components/Module/ModuleList";
 import Module from "./Components/Module/Module";
+import Settings from "./Components/Settings";
 
 export default function App() {
 
@@ -23,6 +24,7 @@ export default function App() {
                                     <PrivateRoute path="/add" component={Adding}/>
                                     <PrivateRoute path="/modules" component={ModuleList}/>
                                     <PrivateRoute path="/module/:id" component={Module}/>
+                                    <PrivateRoute path="/settings" component={Settings}/>
                                 </BrowserRouter>
                             </div>
                         </div>

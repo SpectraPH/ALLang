@@ -1,0 +1,40 @@
+.testWordContainer{
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    border-bottom: 2px solid #02A7F0;
+    font-size: 15pt;
+}
+
+.testInputContainer input {
+    outline: none;
+    margin: 10px 0 20px 0;
+    border: none;
+    border-bottom: 3px solid #C2DEE9;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    height: 30px;
+    width: 600px;
+    font-size: 13pt;
+    font-family: inherit;
+    background-color: #F7F7F7;
+}
+
+.testSubmitButton{
+
+    margin: 0 0 0 500px;
+    background-color: #81D3F8;
+    border: 1px solid #C2DEE9;
+    border-radius: 5px;
+    font-size: 13pt;
+    padding: 8px 20px 8px 20px;
+}
+
+.TestContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+}

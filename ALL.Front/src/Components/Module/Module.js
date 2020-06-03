@@ -6,6 +6,7 @@ import Cards from "./Cards";
 import Learning from "./Learning";
 import Listening from "./Listening";
 import Pronunciation from "./Pronunciation";
+import Test from "./Test";
 
 
 export default class Module extends React.Component {
@@ -58,6 +59,11 @@ export default class Module extends React.Component {
             return (<Pronunciation {...props} module={st}/>)
         }
 
+        const WrappedTest = function (props) {
+            return (<Test {...props} module={st}/>)
+        }
+
+
 
         const active = "moduleSectionActive"
         const inactive = "moduleSectionInactive"
@@ -88,6 +94,7 @@ export default class Module extends React.Component {
                     <Route path={"/module/:id/l"} component={WrappedLearning}/>
                     <Route path={"/module/:id/a"} component={WrappedListening}/>
                     <Route path={"/module/:id/s"} component={WrappedPronunciation}/>
+                    <Route path={"/module/:id/t"} component={WrappedTest}/>
                 </BrowserRouter>
 
             </div>
