@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-namespace ALLang
+namespace PRP_Project
 {
     public class AuthOptions
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ALLang.BLL.DTO;
+using PRP_Project.BL.DTO;
 
-namespace ALLang.BLL.Interfaces
+namespace PRP_Project.BL.Interfaces
 {
     interface IModuleService
     {

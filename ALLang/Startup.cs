@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Net.Http.Headers;
+using PRP_Project;
 
 namespace ALLang
 {
@@ -19,13 +21,7 @@ namespace ALLang
 
         public IConfiguration Configuration { get; }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(builder =>
-                {
-                    builder.UseStartup<Startup>();
-                    builder.UseUrls("http://localhost:44324/");
-                });
+        
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -47,6 +43,8 @@ namespace ALLang
                 });
 
             services.AddControllers();
+            services.AddCors();
+            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -57,12 +55,9 @@ namespace ALLang
             }
 
             app.UseCors(builder =>
-                builder.WithOrigins("http://localhost:3000", "http://www.myclientserver.com")
-                    .AllowAnyOrigin()
+                builder.WithOrigins("http://localhost:3000", "http://u81267.test-handyhost.ru")
                     .AllowAnyHeader()
                     .AllowAnyMethod());
-
-            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseHttpsRedirection();
 
@@ -74,6 +69,6 @@ namespace ALLang
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
 
-        
+
     }
 }

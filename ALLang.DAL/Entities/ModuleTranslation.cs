@@ -1,4 +1,4 @@
-﻿namespace ALLang.DAL.Entities
+﻿namespace PRP_Project.DAL.Entities
 {
     public class ModuleTranslation
     {

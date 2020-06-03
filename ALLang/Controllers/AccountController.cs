@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using ALLang.BLL.DTO;
-using ALLang.BLL.Enums;
-using ALLang.BLL.Interfaces;
-using ALLang.BLL.Services;
-using ALLang.DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using PRP_Project.BL.DTO;
+using PRP_Project.BL.Enums;
+using PRP_Project.BL.Services;
+using PRP_Project.DAL.Entities;
 
-namespace ALLang.PL.Controllers
+namespace PRP_Project.Controllers
 {
     public class AccountController : Controller
     {
-        private IUserService userService;
+        private UserService userService;
 
         public AccountController()
         {
@@ -27,11 +27,11 @@ namespace ALLang.PL.Controllers
             var identity = GetIdentity(login, password);
             if (identity == null)
             {
-                return BadRequest(new { errorText = "Invalid username or password." });
+                return BadRequest(new {errorText = "Invalid username or password."});
             }
 
             var now = DateTime.UtcNow;
-            // создаем JWT-токен
+
             var jwt = new JwtSecurityToken(
                 issuer: AuthOptions.ISSUER,
                 audience: AuthOptions.AUDIENCE,
@@ -68,34 +68,36 @@ namespace ALLang.PL.Controllers
             return StatusCode(400);
         }
 
-        [HttpGet("/user/{login}")]
-        public IActionResult GetUserInfo(string login)
-        {
-            return Json(userService.GetUser(login));
-        }
-
         [HttpPut("/user")]
         public void UpdateUser(UserDTO user)
         {
             userService.UpdateUser(user);
         }
 
+        [HttpGet("/user/{login}")]
+        public IActionResult GetUserInfo(string login)
+        {
+            return Json(userService.GetUser(login));
+        }
+
         private ClaimsIdentity GetIdentity(string username, string password)
         {
-            User person = userService.Login(username, password);
-            if (person != null)
-            {
-                var claims = new List<Claim>
+                User person = userService.Login(username,password);
+                if (person != null)
+                {
+                    var claims = new List<Claim>
                     {
                         new Claim(ClaimsIdentity.DefaultNameClaimType, person.Login)
                     };
-                ClaimsIdentity claimsIdentity =
-                    new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
-                        ClaimsIdentity.DefaultRoleClaimType);
-                return claimsIdentity;
-            }
+                    ClaimsIdentity claimsIdentity =
+                        new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
+                            ClaimsIdentity.DefaultRoleClaimType);
+                    return claimsIdentity;
+                }
 
-            return null;
+                return null;
         }
+
+        
     }
 }

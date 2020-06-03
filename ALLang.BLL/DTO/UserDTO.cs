@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.AspNetCore.Http;
 
-namespace ALLang.BLL.DTO
+namespace PRP_Project.BL.DTO
 {
     public class UserDTO
     {

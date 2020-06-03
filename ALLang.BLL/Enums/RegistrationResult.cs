@@ -1,4 +1,4 @@
-﻿namespace ALLang.BLL.Enums
+﻿namespace PRP_Project.BL.Enums
 {
     public enum RegistrationResult
     {

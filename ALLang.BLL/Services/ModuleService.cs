@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ALLang.BLL.DTO;
-using ALLang.BLL.Interfaces;
-using ALLang.DAL;
-using ALLang.DAL.Entities;
+using PRP_Project.BL.DTO;
+using PRP_Project.BL.Interfaces;
+using PRP_Project.DAL;
+using PRP_Project.DAL.Entities;
 
-namespace ALLang.BLL.Services
+namespace PRP_Project.BL.Services
 {
     public class ModuleService : IModuleService
     {

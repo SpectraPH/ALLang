@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PRP_Project.DAL;
 
 namespace PRP_Project.DAL.Migrations
 {
     [DbContext(typeof(DataBase))]
-    partial class DataBaseModelSnapshot : ModelSnapshot
+    [Migration("20200524105449_UserUpdate3")]
+    partial class UserUpdate3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

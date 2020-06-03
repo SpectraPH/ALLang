@@ -1,15 +1,16 @@
-﻿using ALLang.BLL.DTO;
-using ALLang.BLL.Enums;
-using ALLang.BLL.Interfaces;
-using ALLang.DAL;
-using ALLang.DAL.Entities;
-using ALLang.DAL.Interfaces;
+﻿using System.Collections.Generic;
+using System.Linq;
+using PRP_Project.BL.DTO;
+using PRP_Project.BL.Enums;
+using PRP_Project.BL.Interfaces;
+using PRP_Project.DAL;
+using PRP_Project.DAL.Entities;
 
-namespace ALLang.BLL.Services
+namespace PRP_Project.BL.Services
 {
-    public class UserService : IUserService
+    public class UserService : IUserSerice
     {
-        private IRepository repository;
+        private Repository repository;
 
         public UserService()
         {
@@ -40,7 +41,7 @@ namespace ALLang.BLL.Services
             {
                 if (item.Login == user.Login)
                     return RegistrationResult.LoginAlreadyExist;
-                if (item.Email == user.Email)
+                if(item.Email == user.Email)
                     return RegistrationResult.EmailAlreadyExist;
             }
             repository.SaveUser(user);
@@ -54,7 +55,7 @@ namespace ALLang.BLL.Services
                 Login = user.Login,
                 Email = user.Email
             };
-            repository.UpdateUser(_user, user.image);
+            repository.UpdateUser(_user,user.image);
         }
     }
 }

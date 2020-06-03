@@ -1,6 +1,9 @@
-﻿using ALLang.DAL.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using PRP_Project.DAL.Entities;
 
-namespace ALLang.BLL.DTO
+namespace PRP_Project.BL.DTO
 {
     public class ModuleDTO
     {

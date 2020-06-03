@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using ALLang.DAL.Entities;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
+using PRP_Project.DAL.Entities;
 
-namespace ALLang.DAL.Interfaces
+namespace PRP_Project.DAL.Interfaces
 {
     public interface IRepository
     {

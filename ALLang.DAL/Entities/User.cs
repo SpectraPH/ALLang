@@ -1,4 +1,6 @@
-﻿namespace ALLang.DAL.Entities
+﻿using System.Collections.Generic;
+
+namespace PRP_Project.DAL.Entities
 {
     public class User
     {
@@ -7,6 +9,8 @@
         public string Login { get; set; }
         public string Password { get; set; }
         public string ProfileImage { get; set; }
+
+        public IList<ModuleUser> ModuleUser { get; set; }
 
         public User(string email, string login, string password)
         {
@@ -17,7 +21,6 @@
 
         public User()
         {
-            
         }
     }
 }

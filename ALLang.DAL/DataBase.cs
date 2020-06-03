@@ -1,7 +1,7 @@
-﻿using ALLang.DAL.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using PRP_Project.DAL.Entities;
 
-namespace ALLang.DAL
+namespace PRP_Project.DAL
 {
     public class DataBase : DbContext
     {
@@ -12,14 +12,17 @@ namespace ALLang.DAL
         public DbSet<ModuleUser> ModuleUsers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=ALLang;Trusted_Connection=True");
+        { 
+           //optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=PRP_Project;Trusted_Connection=True");
+           optionsBuilder.UseSqlServer("Data Source=SQL5059.site4now.net;Initial Catalog=DB_A62642_SpectraPH;User Id=DB_A62642_SpectraPH_admin;Password=18253kr!;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ModuleTranslation>().HasKey(x => new { x.ModuleId, x.TranslationId });
-            modelBuilder.Entity<ModuleUser>().HasKey(x => new { x.ModuleId, x.UserId });
+            modelBuilder.Entity<ModuleTranslation>().HasKey(x => new {x.ModuleId, x.TranslationId});
+            modelBuilder.Entity<ModuleUser>().HasKey(x => new {x.ModuleId, x.UserId});
         }
+        
+        
     }
 }

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using ALLang.DAL.Entities;
 using System.Linq;
 using System.Net;
-using ALLang.DAL.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using PRP_Project.DAL.Entities;
+using PRP_Project.DAL.Interfaces;
 
-namespace ALLang.DAL
+namespace PRP_Project.DAL
 {
     public class Repository : IRepository
     {
@@ -65,8 +65,10 @@ namespace ALLang.DAL
                 foreach (var item in module.ModuleTranslations)
                 {
                     var url = item.Translation.ImageURL;
-                    if (url != null)
+                    if (url != null && url.Contains("http"))
                     {
+                        if (!Directory.Exists("img"))
+                            Directory.CreateDirectory("img");
 
                         var fileName = url.GetHashCode().ToString() + ".png";
                         var path = Path.GetFullPath("img/" + fileName);
@@ -125,10 +127,11 @@ namespace ALLang.DAL
             var userfromDB = context.Users.FirstOrDefault(u => u.Login == user.Login);
             if (userfromDB != null)
             {
-                userfromDB.Login = user.Login;
                 userfromDB.Email = user.Email;
                 if (file != null)
                 {
+                    if (!Directory.Exists("img"))
+                        Directory.CreateDirectory("img");
                     var fileName = file.FileName.GetHashCode().ToString() + ".png";
                     var path = Path.GetFullPath("img/" + fileName);
                     using (var fileStream = new FileStream(path, FileMode.Create))
@@ -153,6 +156,7 @@ namespace ALLang.DAL
                     return true;
                 }
             }
+
             return false;
         }
     }

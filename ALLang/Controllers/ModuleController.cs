@@ -1,10 +1,11 @@
-﻿using ALLang.BLL.DTO;
-using ALLang.BLL.Services;
+﻿using System.Collections;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
+using PRP_Project.BL.DTO;
+using PRP_Project.BL.Services;
 
-namespace ALLang.PL.Controllers
+namespace PRP_Project.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -16,14 +17,14 @@ namespace ALLang.PL.Controllers
         {
             this.moduleService = new ModuleService();
         }
-
+        
         [Authorize]
         [HttpGet("/allmodules")]
         public IEnumerable GetAllModules()
         {
             return moduleService.GetAllModules();
         }
-
+        
         [Authorize]
         [HttpGet]
         public IEnumerable GetAllUsersModules()
@@ -53,8 +54,7 @@ namespace ALLang.PL.Controllers
         [HttpDelete("{id}")]
         public void DeleteModule(int id)
         {
-            moduleService.DeleteModule(id);
+            moduleService.DeleteModule(id);   
         }
     }
-
 }
