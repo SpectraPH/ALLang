@@ -14,9 +14,8 @@ export default function Login() {
 
 
     if(isLogin()) {
-        axios.get(`https://localhost:44324/user/` + sessionStorage.getItem("username"))
+        axios.get(`http://spectraph-001-site1.itempurl.com/user/` + sessionStorage.getItem("username"))
             .then(res => {
-                console.log(res);
                 setLogin(res.data.login)
                 setImg(res.data.profileImage)
 
@@ -65,8 +64,8 @@ export default function Login() {
             {isLogin() ?  <div>
                 <span>{sessionStorage.getItem("username")}</span>
                 <img className={"loginProfileImage"}
-                     src={img !== null ? "https://localhost:44324/image/" + img : ProfileIMG}/>
-            </div> : <a onClick={() => handleShowLogin()}>Вход</a>
+                     src={img !== null ? "http://spectraph-001-site1.itempurl.com/image/" + img : ProfileIMG}/>
+            </div> : <a onClick={() => handleShowLogin()}>Увійти</a>
             }
         </div>
     )

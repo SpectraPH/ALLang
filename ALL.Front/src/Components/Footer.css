@@ -1,0 +1,21 @@
+.footerImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    padding: 5px 5px 5px 5px;
+    margin: 0 15px 0 15px;
+    border: 2px solid black;
+}
+
+.footerContainer{
+    background-color: #C2DEE9;
+    padding: 10px 0 10px 0;
+}
+
+.footerImageContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto 0 auto;
+    max-width: 1300px;
+}

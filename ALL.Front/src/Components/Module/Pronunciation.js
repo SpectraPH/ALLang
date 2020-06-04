@@ -44,6 +44,11 @@ export default class Pronunciation extends React.Component {
     }
 
     checkAllAnswers() {
+        for(let i = 0; i < this.state.isCorrect.length; i++){
+            if(!this.state.isCorrect[i])
+                return false
+        }
+        return true
     }
 
 
@@ -58,7 +63,7 @@ export default class Pronunciation extends React.Component {
             document.getElementById("title").className = "wrong"
         }
         else {
-            document.getElementById("title").innerText = "Скажите слово"
+            document.getElementById("title").innerText = "Скажіть слово"
             document.getElementById("title").className = "learningHeader"
         }
         this.setState({currentIndex: index});
@@ -69,14 +74,14 @@ export default class Pronunciation extends React.Component {
         return (
             <div className={"pronunciationContainer"}>
                 <div className={"learningHeaderContainer"}>
-                    <span id={"title"} className={"learningHeader"}>Скажите слово</span>
+                    <span id={"title"} className={"learningHeader"}>Скажіть слово</span>
                 </div>
                 <div className={"centerContentInBlock"}>
                     <div className={"pronunciationInputContainer"}>
                         <span className={"pronunciationWord"} id={"word"}> </span>
-                        <div className={"pronunciationButton"}>Прослушать</div>
+                        <div className={"pronunciationButton"}>Прослухати</div>
                         <SpeechSynthesis text={this.props.module.translations[this.state.currentIndex].word}/>
-                        <div className={"pronunciationButton"}>Сказать</div>
+                        <div className={"pronunciationButton"}>Сказати</div>
                         <SpeechRecognition updateData={this.updateData} lang={"en-US"}/>
                     </div>
                 </div>

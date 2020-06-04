@@ -20,7 +20,8 @@ export default class SliderItem extends React.Component {
                 <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection={"vertical"}>
                     <div className={'sliderItem'} onClick={(e) => this.handleClick(e)}>
                         <span>{this.props.word}</span>
-                        <img src={this.props.img}/>
+                        {this.props.img !== "" ? <img src={"http://spectraph-001-site1.itempurl.com/image/" + this.props.img}/> : <></>}
+
                     </div>
                     <div className={'sliderItem'} onClick={(e) => this.handleClick(e)}>
                         <span>{this.props.wordTranslation}</span>

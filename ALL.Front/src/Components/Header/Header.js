@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "./Login";
+import logo from "../../img/logo.png"
 
 export default function Header() {
     return (
@@ -9,18 +10,18 @@ export default function Header() {
             <div className={'navBar'}>
                 <div className={'navBarContainer'}>
                     <div className={'logo'}>
-                        <span>ALLang</span>
+                        <img src={logo}/>
                     </div>
                     <div className={'linkBlock'}>
                         <div className={'linkLeft'}>
                             <div>
-                                <a href={"/"}>Главная</a>
+                                <a href={"/"}>Головна</a>
                             </div>
                         </div>
 
                         <div className={'link'}>
                             <div>
-                                <a>О нас</a>
+                                <a>Про нас</a>
                             </div>
                         </div>
 

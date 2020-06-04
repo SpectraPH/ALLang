@@ -1,10 +1,11 @@
-.sideBarBlock{
+body{
 
+  background-color: #f1f4fd;
 }
 
-.contentBlock{
-  width: 100%;
-  padding: 10px 0 25px 60px;
+html,
+body {
+  height: 100%;
 }
 
 .container{
@@ -13,4 +14,27 @@
   max-width: 1300px;
   display: flex;
   justify-content: center;
+  position: relative;
+  min-height: calc(100vh - 145px);
+}
+
+.sideBarBlock{
+
+}
+
+.contentBlock{
+  width: 100%;
+
+  padding: 10px 0 25px 60px;
+}
+
+.Name{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  margin: 15px;
+  display: inline-block;
+}
+.c{
+
 }

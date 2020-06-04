@@ -1,0 +1,33 @@
+.profileContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 40px 0;
+}
+
+.profileImageContainer{
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+
+
+}
+.profileInfoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profileInfoContainer span {
+    margin: 7px 0 7px 10px;
+    font-size: 15pt;
+}
+
+.profileStatisticsContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.profileStatisticsContainer span{
+    font-size: 17pt;
+    margin: 15px 0 15px 15px;
+}

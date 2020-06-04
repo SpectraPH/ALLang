@@ -9,7 +9,7 @@ export default class ModuleList extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch("https://localhost:44324/module", {
+        const response = await fetch("http://spectraph-001-site1.itempurl.com/module", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -17,13 +17,12 @@ export default class ModuleList extends React.Component {
             }
         });
 
-        console.log(sessionStorage.getItem("accessToken"))
-
-        if(response.ok === true) {
+        if (response.ok === true) {
             const data = await response.json();
+            console.log(data)
             this.setState({modules: data});
-            console.log(this.state.modules)
         }
+
     }
 
 
@@ -40,20 +39,27 @@ export default class ModuleList extends React.Component {
     render() {
         return (
             <div>
-                <div>
-                    <div className={'moduleListHeaderContainer'}>
-                        <span>Мои Модули</span>
-                    </div>
+                <div className={'moduleListHeaderContainer'}>
+                    <span>Мої Модулі</span>
+                </div>
+                {this.state.modules.length !== 0 ? (<div>
                     <div className={'moduleListSearchContainer'}>
-                        <input placeholder={'Искать...'}/>
-                        <button className={'button searchButton'}>Искать</button>
+                        <input placeholder={'Шукати...'}/>
+                        <button className={'button searchButton'}>Шукати</button>
                     </div>
-                </div>
-                <div>
-                    {this.state.modules.map(module =>
-                        <ModuleTitle module={module}/>
-                    )}
-                </div>
+                    <div>
+                        {this.state.modules.map(module =>
+                            <ModuleTitle module={module}/>
+                        )}
+                    </div>
+                </div>) : (
+                    <div>
+                        <div className={'moduleListHeaderContainer'}>
+                            <h2>У вас немає модулів. Створіть новий модуль.</h2>
+                        </div>
+                    </div>
+                )}
+
             </div>
         )
     }

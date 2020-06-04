@@ -3,12 +3,8 @@ import './CSS/ModuleTitle.css'
 
 export default class ModuleTitle extends React.Component {
 
-    componentDidMount() {
-        console.log(this.props);
-    }
 
     handleClick() {
-        console.log(this.props);
         window.location.href = "/module/" + this.props.module.id + "/cards";
     }
 

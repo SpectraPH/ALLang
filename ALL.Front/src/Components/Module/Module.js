@@ -22,7 +22,7 @@ export default class Module extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`https://localhost:44324/module/` + this.props.match.params.id)
+        axios.get(`http://spectraph-001-site1.itempurl.com/module/` + this.props.match.params.id)
             .then(res => {
                 console.log(res.data);
                 this.setState({id: res.data.id});
@@ -35,6 +35,16 @@ export default class Module extends React.Component {
     handleEdit(index) {
         window.location.href = "/edit/" + index;
     }
+    async handleDelete(index) {
+        const response = await fetch("http://spectraph-001-site1.itempurl.com/module/" + index, {
+            method: "DELETE",
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+        window.location.href = "/modules"
+    }
+
 
 
     render() {
@@ -42,9 +52,10 @@ export default class Module extends React.Component {
 
         const st = this.state;
         const hn = this.handleEdit;
+        const hnd = this.handleDelete;
 
         const WrappedCards = function (props) {
-            return (<Cards {...props} module={st} handleEdit={hn}/>)
+            return (<Cards {...props} module={st} handleEdit={hn} handleDelete={hnd}/>)
         }
 
         const WrappedLearning = function (props) {
@@ -78,13 +89,13 @@ export default class Module extends React.Component {
 
                 <div className={'moduleSectionContainer'}>
                     <a href={id + "/cards"}
-                       className={document.location.href === "http://localhost:3000/module/" + this.state.id + "/cards" ? active : inactive}>Карточки</a>
+                       className={document.location.href === "http://localhost:3000/module/" + this.state.id + "/cards" ? active : inactive}>Картки</a>
                     <a href={id + "/l"}
-                       className={document.location.href === "http://localhost:3000/module/" + this.state.id + "/l" ? active : inactive}>Заучивание</a>
+                       className={document.location.href === "http://localhost:3000/module/" + this.state.id + "/l" ? active : inactive}>Вивчення</a>
                     <a href={id + "/a"}
-                       className={document.location.href === "http://localhost:3000/module/" + this.state.id + "/a" ? active : inactive}>Аудирование</a>
+                       className={document.location.href === "http://localhost:3000/module/" + this.state.id + "/a" ? active : inactive}>Аудиювання</a>
                     <a href={id + "/s"}
-                       className={document.location.href === "http://localhost:3000/module/" + this.state.id + "/s" ? active : inactive}>Произношение</a>
+                       className={document.location.href === "http://localhost:3000/module/" + this.state.id + "/s" ? active : inactive}>Вимова</a>
                     <a href={id + "/t"}
                        className={document.location.href === "http://localhost:3000/module/" + this.state.id + "/t" ? active : inactive}>Тест</a>
                 </div>

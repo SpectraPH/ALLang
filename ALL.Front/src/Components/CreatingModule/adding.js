@@ -7,6 +7,7 @@ import SpeechRecognition from '../SpeechRecognition'
 import ImageSlider from "./ImageSlider";
 import axios from "axios";
 import {Spring, Transition} from "react-spring/renderprops-universal";
+import {forEach} from "react-bootstrap/cjs/ElementChildren";
 
 export default class Adding extends React.Component {
 
@@ -18,6 +19,7 @@ export default class Adding extends React.Component {
             word: '',
             wordTranslation: '',
             imagesIsVisible: false,
+            imageURL : ''
         }],
         username: sessionStorage.getItem("username")
 
@@ -25,7 +27,7 @@ export default class Adding extends React.Component {
 
     componentDidMount() {
         if (this.props.match.params.id !== undefined) {
-            axios.get(`https://localhost:44324/module/` + this.props.match.params.id)
+            axios.get(`http://spectraph-001-site1.itempurl.com/module/` + this.props.match.params.id)
                 .then(res => {
                     console.log(res.data);
                     this.setState({id: res.data.id});
@@ -68,23 +70,52 @@ export default class Adding extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log(this.state);
-        if (this.add === true) {
-            const requestOptions = {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(this.state)
-            };
-            fetch('https://localhost:44324/module', requestOptions).then(r => console.log(r))
-        } else {
-            const requestOptions = {
-                method: 'PUT',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(this.state)
-            };
-            fetch('https://localhost:44324/module', requestOptions)
+        let newArray = [];
+        this.state.translations.forEach(item => newArray.push({
+            word: item.word,
+            wordTranslation: item.wordTranslation,
+            imageURL: item.imageURL
+        }))
+        const data = {
+            id:this.state.id,
+            title: this.state.title,
+            translations: newArray,
+            username: this.state.username
         }
-        document.location.href = "/modules";
+
+        if (this.add === true) {
+            var request = require('request');
+            var options = {
+                'method': 'POST',
+                'url': 'http://spectraph-001-site1.itempurl.com/module',
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+
+            };
+            request(options, function (error, response) {
+                //if (error) throw new Error(error);
+                console.log(response.body);
+                document.location.href = "/modules";
+            });
+
+        } else {
+            var request = require('request');
+            var options = {
+                'method': 'PUT',
+                'url': 'http://spectraph-001-site1.itempurl.com/module',
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            };
+            request(options, function (error, response) {
+                if (error) throw new Error(error);
+                console.log(response.body);
+                document.location.href = "/modules";
+            });
+        }
     }
 
     updateVoiceData = (value, index) => {
@@ -117,16 +148,16 @@ export default class Adding extends React.Component {
 
         if (this.add) {
             submitButton =
-                <button className={'button submitButton'} type="submit" onClick={(e) => this.handleSubmit(e)}>Создать</button>
+                <button id={"addingModuleButton"} className={'button submitButton'} type="submit" onClick={(e) => this.handleSubmit(e)}>Створити</button>
         } else {
-            submitButton = <button className={'submitButton'} type="submit"
-                                   onClick={(e) => this.handleSubmit(e)}>Редактировать</button>
+            submitButton = <button className={'button submitButton'} type="submit"
+                                   onClick={(e) => this.handleSubmit(e)}>Редагувати</button>
         }
 
         return (
             <div>
                 <div className={'header'}>
-                    <div><span className={'headerText'}>Создать новый модуль</span></div>
+                    <div><span className={'headerText'}>Створити новий модуль</span></div>
                     <div>
                         {submitButton}
                     </div>
@@ -134,10 +165,10 @@ export default class Adding extends React.Component {
 
                 <div className={'titleInputsBlock'}>
                     <div>
-                        <input onChange={(e) => this.handleChangeTitle(e)} placeholder={'Введите название модуля'}
+                        <input onChange={(e) => this.handleChangeTitle(e)} placeholder={'Введіть назву модулю'}
                                value={this.state.title}/>
                         <br/>
-                        <label>Название</label>
+                        <label>Назва</label>
                     </div>
                 </div>
                 <Transition
@@ -155,7 +186,7 @@ export default class Adding extends React.Component {
                                             <input className={"input"} id={'transcript'}
                                                    onChange={(e) => this.handleChangeWord(e, index)}
                                                    value={item.word}
-                                                   placeholder={'Введите слово'}/>
+                                                   placeholder={'Ведіть слово'}/>
                                         </div>
                                         <div style={{marginBottom:"25px"}}>
                                             <SpeechRecognition updateData={this.updateVoiceData} index={index}
@@ -164,14 +195,14 @@ export default class Adding extends React.Component {
                                         <div>
                                             <input className={"input"}
                                                    onChange={(e) => this.handleChangeWordTranslation(e, index)}
-                                                   value={item.wordTranslation} placeholder={'Перевести'}/>
+                                                   value={item.wordTranslation} placeholder={'Перекласти'}/>
                                         </div>
                                     </div>
                                     <div className={'imageBlock'} onClick={() => this.imageHandler(index)}>
                                         <div>
                                             <img src={imgIcon}/>
                                         </div>
-                                        <div><span>Изображение</span></div>
+                                        <div><span>Зображення</span></div>
                                     </div>
                                 </div>
 

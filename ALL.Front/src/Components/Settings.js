@@ -13,18 +13,16 @@ export default class Settings extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`https://localhost:44324/user/` + sessionStorage.getItem("username"))
+        axios.get(`http://spectraph-001-site1.itempurl.com/user/` + sessionStorage.getItem("username"))
             .then(res => {
-                console.log(res);
                 this.setState({login: res.data.login})
                 this.setState({profileImage: res.data.profileImage})
                 this.setState({email: res.data.email})
             })
     }
 
-    handleSubmit() {
+    async handleSubmit() {
         const formData = new FormData();
-
         let email = document.getElementById("emailSet").value
 
         if (email === "")
@@ -32,32 +30,31 @@ export default class Settings extends React.Component {
         else
             formData.append("email", document.getElementById("emailSet").value);
 
-
-        formData.append("image", document.getElementById("fileSet").files[0]);
+        formData.append("image", document.getElementById("imgInput").files[0]);
         formData.append("login", sessionStorage.getItem("username"));
 
 
-        const response = fetch("https://localhost:44324/user", {
+        const response = await fetch("http://spectraph-001-site1.itempurl.com/user", {
             method: "PUT",
             headers: {"Accept": "application/json"},
             body: formData
         })
 
+        document.location.href = "/settings"
     }
-
 
     render() {
         return (
             <div>
-                <form onSubmit={() => this.handleSubmit()}>
+                <div>
 
                     <div className={"settingsHeaderContainer"}>
-                        <h2>Настройка профиля</h2>
+                        <h2>Налаштування профілю</h2>
                     </div>
 
                     <div className={"settingsUserContainer"}>
                         <img className={"settingsProfileImage"}
-                             src={this.state.profileImage !== null ? "https://localhost:44324/image/" + this.state.profileImage : ProfileIMG}/>
+                             src={this.state.profileImage !== null ? "http://spectraph-001-site1.itempurl.com/image/" + this.state.profileImage : ProfileIMG}/>
                         <span>{this.state.login}</span>
                     </div>
 
@@ -67,13 +64,13 @@ export default class Settings extends React.Component {
                                 <label>Email</label>
                             </div>
                             <div className={"settingsInputContainer"}>
-                                <label>Микрофон</label>
+                                <label>Мікрофон</label>
                             </div>
                             <div className={"settingsInputContainer"}>
                                 <label>Звук</label>
                             </div>
                             <div className={"settingsInputContainer"}>
-                                <label>Картинка профиля</label>
+                                <label>Картинка профілю</label>
                             </div>
                         </div>
 
@@ -95,16 +92,16 @@ export default class Settings extends React.Component {
                             <div className={"settingsInputContainer"}>
                                 <label className={"imageBlock"}>
                                     <img src={imgIcon}/>
-                                    <span className="title">Изображение</span>
-                                    <input type={"file"} id="fileSet"/>
+                                    <span className="title">Завантажити</span>
+                                    <input type={"file"} id="imgInput"/>
                                 </label>
                             </div>
                         </div>
                     </div>
 
 
-                    <input type={"submit"} className={"button"} value={"Сохранить изменения"}/>
-                </form>
+                    <button onClick={() => this.handleSubmit()} className={"button"}>Зберегти зміни</button>
+                </div>
             </div>
         );
     }

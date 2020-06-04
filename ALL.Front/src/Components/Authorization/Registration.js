@@ -28,7 +28,7 @@ export default class Registration extends React.Component {
             formData.append("password", document.getElementById("passwordReg").value);
 
             let status = 0;
-            const response = await fetch("https://localhost:44324/registration", {
+            const response = await fetch("http://spectraph-001-site1.itempurl.com/registration", {
                 method: "POST",
                 headers: {"Accept": "application/json"},
                 body: formData
@@ -44,7 +44,7 @@ export default class Registration extends React.Component {
                 formData.append("login", document.getElementById("loginReg").value);
                 formData.append("password", document.getElementById("passwordReg").value);
 
-                const response = await fetch("https://localhost:44324/token", {
+                const response = await fetch("http://spectraph-001-site1.itempurl.com/token", {
                     method: "POST",
                     headers: {"Accept": "application/json"},
                     body: formData

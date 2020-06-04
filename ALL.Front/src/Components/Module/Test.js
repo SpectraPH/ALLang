@@ -4,7 +4,8 @@ import "./CSS/Test.css"
 export default class Test extends React.Component {
 
     state = {
-        isCorrect: []
+        isCorrect: [],
+        isSubmit : false
     }
 
     componentDidMount() {
@@ -15,19 +16,23 @@ export default class Test extends React.Component {
     }
 
     handleChange(e, index) {
-        if (this.props.module.translations[index].word === e.target.value) {
+        if (this.props.module.translations[index].wordTranslation === e.target.value) {
             this.state.isCorrect[index] = true;
             this.setState({isCorrect: this.state.isCorrect});
         }
     }
 
     handleSubmit(){
+        this.setState({isSubmit : true});
+    }
+
+    checkAnswers(){
         let counter = 0;
         this.state.isCorrect.forEach(item => {
             if(item)
                 counter++
         })
-        alert(counter + '/' + this.state.isCorrect.length);
+        return counter;
     }
 
     render() {
@@ -36,14 +41,21 @@ export default class Test extends React.Component {
                 {this.props.module.translations.map((tr, index) =>
                     <div >
                         <div className={"testWordContainer"}>
-                            <span>{tr.wordTranslation}</span>
+                            <span>{tr.word}</span>
                         </div>
-                        <div className={"testInputContainer"}>
+                        <div className={this.state.isSubmit ? this.state.isCorrect[index] ? "correct testInputContainer" :  "incorrect testInputContainer" : "testInputContainer"}>
                             <input onChange={(e) => this.handleChange(e, index)}/>
                         </div>
                     </div>
                 )}
-                <button className={"button estSubmitButton"} onClick={() => this.handleSubmit()}>Завершите тест</button>
+                <button className={"button estSubmitButton"} onClick={() => this.handleSubmit()}>Завершити тест</button>
+                {this.state.isSubmit ? (
+                    <div>
+                       <span>{this.checkAnswers() + "/" + this.state.isCorrect.length}</span>
+                    </div>
+                ) : (
+                    <></>
+                )}
             </div>
         );
     }

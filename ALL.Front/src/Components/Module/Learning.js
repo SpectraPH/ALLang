@@ -33,8 +33,10 @@ export default class Learning extends React.Component{
         if(this.state.isCorrect[index]) {
             input2.value = this.props.module.translations[index].wordTranslation
             document.getElementById("title").innerText = "Правильно"
+            document.getElementById("title").className = "right"
         } else {
-            document.getElementById("title").innerText = "Напишите перевод"
+            document.getElementById("title").innerText = "Напишіть переклад"
+            document.getElementById("title").className = "learningHeader"
             input2.value = ""
         }
         this.setState({currentIndex:index});
@@ -57,7 +59,7 @@ export default class Learning extends React.Component{
         }
 
         if(this.checkAllAnswers())
-            alert("PEREMOGA")
+            alert("OK")
 
     }
 
@@ -66,7 +68,7 @@ export default class Learning extends React.Component{
         return (
             <div >
                 <div className={"learningHeaderContainer"}>
-                    <span id={"title"} className={"learningHeader"}>Напишите перевод</span>
+                    <span id={"title"} className={"learningHeader"}>Напишіть переклад</span>
                 </div>
                 <div className={"learningInputBlock "}>
                     <div className={"centerContentInBlock"}>
@@ -77,7 +79,7 @@ export default class Learning extends React.Component{
                     </div>
                 </div>
                 <div className={"learningSubmitButtonContainer "}>
-                    <button className={"button submitButton"} onClick={() => this.handleSubmit()}>Ответить</button>
+                    <button className={"button submitButton"} onClick={() => this.handleSubmit()}>Відповісти</button>
                 </div>
                 <div className={"learningIndexContainer"}>
                 {

@@ -30,8 +30,10 @@ export default class Listening extends React.Component {
         if (this.state.isCorrect[index]) {
             input.value = this.props.module.translations[index].word
             document.getElementById("title").innerText = "Правильно"
+            document.getElementById("title").className = "right"
         } else {
-            document.getElementById("title").innerText = "Введите то что слышите"
+            document.getElementById("title").innerText = "Введіть те, що чуєте"
+            document.getElementById("title").className = "learningHeader"
             input.value = ""
         }
         this.setState({currentIndex: index});
@@ -41,7 +43,7 @@ export default class Listening extends React.Component {
         let value = document.getElementById("input_L").value;
         console.log(value)
         console.log(this.props.module.translations[this.state.currentIndex].word)
-        if (this.props.module.translations[this.state.currentIndex].wordTranslation === value) {
+        if (this.props.module.translations[this.state.currentIndex].word === value) {
             this.state.isCorrect[this.state.currentIndex] = true
             this.setState({isCorrect: this.state.isCorrect});
             document.getElementById("title").innerText = "Правильно"
@@ -49,11 +51,12 @@ export default class Listening extends React.Component {
         } else {
             document.getElementById("title").innerText = "Неправильно"
             document.getElementById("title").className = "wrong"
+
         }
 
 
         if (this.checkAllAnswers())
-            alert("PEREMOGA")
+            alert("OK")
 
     }
 
@@ -62,7 +65,7 @@ export default class Listening extends React.Component {
         return (
             <div>
                 <div className={"learningHeaderContainer"}>
-                    <span id={"title"} className={"learningHeader"}>Введите то что слышите</span>
+                    <span id={"title"} className={"learningHeader"}>Введіть те, що чуєте</span>
                 </div>
                 <div className={"centerContentInBlock"}>
                     <div className={"learningInputBlock"}>
@@ -73,7 +76,7 @@ export default class Listening extends React.Component {
                     </div>
                 </div>
                 <div className={"learningSubmitButtonContainer"}>
-                    <button className={"button submitButton"} onClick={() => this.handleSubmit()}>Ответить</button>
+                    <button className={"button submitButton"} onClick={() => this.handleSubmit()}>Відповісти</button>
                 </div>
                 <div className={"learningIndexContainer"}>
                     {

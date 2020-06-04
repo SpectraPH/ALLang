@@ -16,13 +16,11 @@ export default class Singin extends React.Component {
         formData.append("login", document.getElementById("emailLogin").value);
         formData.append("password", document.getElementById("passwordLogin").value);
 
-        const response = await fetch("https://localhost:44324/token", {
+        const response = await fetch("http://spectraph-001-site1.itempurl.com/token", {
             method: "POST",
             headers: {"Accept": "application/json"},
             body: formData
         })
-
-
         const data = await response.json();
 
         console.log(response)
@@ -44,28 +42,28 @@ export default class Singin extends React.Component {
         return (
             <div className={"Singin"}>
                 <div className={"centerContentInBlock"}>
-                    <h2 style={{fontWeight: "bolder"}}>Login</h2>
+                    <h2 style={{fontWeight: "bolder"}}>Авторизація</h2>
                 </div>
                 <div className={"centerContentInBlock"} style={{color:"red"}}>
-                {this.state.isWrongResponse ? <><span>Неверный логин или/и пароль</span><br/></> : <></>}
+                    {this.state.isWrongResponse ? <><span>Невірний логин або/та пароль</span><br/></> : <></>}
                 </div>
                 <div className={"loginInputBlock"}>
-                    <input placeholder={"Login"} className={"input"} id="emailLogin"/>
+                    <input placeholder={"логін"} className={"input"} id="emailLogin"/>
                 </div>
                 <div className={"loginInputBlock"}>
-                    <input placeholder={"Password"} className={"input"} type="password" id="passwordLogin"/>
+                    <input placeholder={"пароль"} className={"input"} type="password" id="passwordLogin"/>
                 </div>
 
 
                 <div className={"centerContentInBlock"}>
                     <button className={"loginButton"} onClick={() => this.formData()} type="submit"
-                            id="submitLogin">Войти
+                            id="submitLogin">Увійти
                     </button>
                 </div>
 
                 <div className={"centerContentInBlock"}>
                     <button className={"registrationButton"}
-                            onClick={() => this.props.handleRegistration()}>Регистрация
+                            onClick={() => this.props.handleRegistration()}>Створити аккаунт
                     </button>
                 </div>
             </div>

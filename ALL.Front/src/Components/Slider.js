@@ -23,7 +23,7 @@ export default class Slider extends React.Component {
                     {this.props.module.translations.map(tr =>
                         <div className="each-fade">
                             <div className="image-container" style={{width:'100%'}}>
-                                <SliderItem img={"https://localhost:44324/image/" + tr.imageURL} word={tr.word} wordTranslation={tr.wordTranslation}/>
+                                <SliderItem img={tr.imageURL} word={tr.word} wordTranslation={tr.wordTranslation}/>
                             </div>
                         </div>
                     )}

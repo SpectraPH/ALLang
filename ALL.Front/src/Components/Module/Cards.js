@@ -10,7 +10,8 @@ export default class Cards extends React.Component{
                 </div>
 
                 <div className={'editButtonContainer'}>
-                    <button onClick={() => this.props.handleEdit(this.props.module.id)} className={'button'}>Редактировать</button>
+                    <button onClick={() => this.props.handleEdit(this.props.module.id)} style={{margin:"0 5px 0 5px"}} className={'button'}>Редагувати</button>
+                    <button onClick={() => this.props.handleDelete(this.props.module.id)} style={{margin:"0 5px 0 5px"}} className={'button'}>Видалити</button>
                 </div>
             </div>
         );
